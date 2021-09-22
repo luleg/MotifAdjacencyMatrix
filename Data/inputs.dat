@@ -1,0 +1,4 @@
+-i Data/Hierarchy.nwk?
+-m Q204?
+-otxt Data/Hierarchy_BiFan.txt?
+-nthreads 8?
