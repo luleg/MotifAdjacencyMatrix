@@ -1,0 +1,9 @@
+all: $(MAIN)
+
+# COMPILE
+$(MAIN): $(MAIN).cpp $(DEPH) $(DEPCPP) ../$(CSNAP)/Snap.o
+	$(CC) $(CXXFLAGS) -o $(MAIN) $(MAIN).cpp $(DEPCPP) ../$(CSNAP)/Snap.o -I../$(CSNAP) -I../$(CSNAPADV) -I../$(CGLIB) $(LDFLAGS) $(LIBS)
+
+clean:
+	rm -f *.o  $(MAIN)  $(MAIN).exe
+	rm -rf Debug Release
