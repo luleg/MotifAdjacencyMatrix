@@ -23,7 +23,9 @@ Tested in an `Ubuntu 18.04` environment emulated via a `Windows Subsystem for Li
 On a bash command, at the root of the folder:
 
 ```bash
-cd src/BuildingMAM
+cd src/UtilsSNAP
+make
+cd ../BuildingMAM
 make
 cd ..
 ```
