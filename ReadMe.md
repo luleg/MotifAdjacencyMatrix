@@ -34,7 +34,7 @@ cd ..
 
 The following command in the root folder explains how to run the software.
 ```bash
-src/BuildingMAM/buildMAM -h
+./src/BuildingMAM/buildMAM -h
 ```
 
 #### Detailed Usage
@@ -44,7 +44,7 @@ src/BuildingMAM/buildMAM -h
 The software comes with examples in the folder *Data*. Assume we aim to build the MAM of the network *Data/Hierarchy.nwk* upon the Bifan motif (shown on the right), and store the output MAM in a file *Data/Hierarchy_Bifan.txt*. In the root folder:
 
 ```bash
-src/BuildingMAM/buildMAM -i Data/Hierarchy.nwk -m Q204 -otxt Data/Hierarchy_Bifan.txt -nthreads 8
+./src/BuildingMAM/buildMAM -i Data/Hierarchy.nwk -m Q204 -otxt Data/Hierarchy_Bifan.txt -nthreads 8
 ```
 
 where:
@@ -67,7 +67,7 @@ where:
 The same result is obtained using the command:
 
 ```bash
-src/BuildingMAM/buildMAM -f Data/inputs.dat
+./src/BuildingMAM/buildMAM -f Data/inputs.dat
 ```
 
 :microscope: In *Data/inputs.dat* each line is one of the arguments mentioned above, ended by a character "*?*" to prevent portability issue.
@@ -94,15 +94,15 @@ Austin Benson, [Tools for Higher-Order Network Analysis, Chap-II](https://arxiv.
 
 ## Tutorial
 
-Two networks are provided in this software, namely *Data/Hierarchical.nwk* and *Data/Flows.nwk*. They both highlight interesting aspects of MAM, that we briefly investigate below.
+Two networks are provided in this software, namely *Data/Hierarchy.nwk* and *Data/Flows.nwk*. They both highlight interesting aspects of MAM, that we briefly investigate below.
 
 :heavy_plus_sign: In addition to the current software, ```Python3``` with ```NetworkX2.5``` is used to build the networks, and ```Gephi``` to visualize them.
 
-<img align="right" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/HierarchicalRaw.png" width="30%" height="30%">
+<img align="right" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/HierarchyRaw.png" width="30%" height="30%">
 
-### Hierarchical Network
+### Hierarchy Network
 
-The *Hierarchical* network has been created to imitate the behaviour of the *Twitter* who-follows-whom network. That is, a large number of anonymous users follows a handful of famous ones. The probability for an anonymous to follow a famous user is higher if the latter is famous in an field of interest for the former (e.g. a painter, a singer, a politician, etc.).
+The *Hierarchy* network has been created to imitate the behaviour of the *Twitter* who-follows-whom network. That is, a large number of anonymous users follows a handful of famous ones. The probability for an anonymous to follow a famous user is higher if the latter is famous in an field of interest for the former (e.g. a painter, a singer, a politician, etc.).
 
 Famous users from a same field have a very high probability to follow each other, and a still high probability to follow famous user from other field (they may have met at a Gala night, in a TV show, etc.). Anonymous users interested in a same field have a slightly higher probability to follow each other than other anonymous users, since they have more chance to have met, in a museum, a concert, an online forum, etc. and may be interested in each other tweets.
 
@@ -119,13 +119,13 @@ Pobabilities = [ [12e-3, 10e-3, 0.1,   2e-2 ],
                  [3e-3,  3e-3,  0.15,  0.015],
                  [3e-3,  3e-3,  0.015, 0.15 ] ]
 G = nx.stochastic_block_model(BlockSizes,Pobabilities,directed=True)
-nx.write_edgelist(G,'Data/Hierarchical.nwk',delimiter,' ',data=False)
+nx.write_edgelist(G,'Data/Hierarchy.nwk',delimiter,' ',data=False)
 ```
 The network is displayed at the top right, using the layout ```Force Atlas 2``` in ```Gephi```. Red, respectively dark blue, nodes correspond to famous users from one field, let say painting, respectively politics. Yellow, respectively light blue, nodes are anonymous users interested in painting, respectively politics. Users from different fields are roughly located in different part of the layout. However the network seems to consists in one homogeneous component, and without the colors, one cannot say that there are two fields, neither where to partition the network.
 
 <img align="right" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/Q2252.png" width="8%" height="8%"> To highlight the two components, we used the software to build the MAM of this network upon motif *Q2252* (shown on the right):
 ```bash
-src/BuildingMAM/buildMAM Data/Hierarchy.nwk -m Q2252 -otxt Data/Hierarchy_Q2252.txt
+./src/BuildingMAM/buildMAM Data/Hierarchy.nwk -m Q2252 -otxt Data/Hierarchy_Q2252.txt
 ```
 <img align="left" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/Hierarchical2252WithSingle.png" width="37%" height="37%"> This provides the network on the left, again displayed using the layout ```Force Atlas 2``` in ```Gephi```. Some nodes do not belong to any subgraph isomorphic to the *Q2252* graphlets, and are let disconnected. In the largest connected component, the two fields are highly separated, and a partition of the network in two components appears clearly, with only a few nodes being wrongly assigned.
 
@@ -149,7 +149,7 @@ The resulting network is displayed on the top left, where red nodes are those fr
 
 <img align="right" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/Flows38.png" width="20%" height="20%"><img align="left" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/FFL.png" width="10%" height="10%">If one aims to find groups of nodes involved in source/sink relationships, a sensible motif upon which building the MAM can be motif *T38*, the Feed Forward loop, illustrated on the left. The corresponding MAM was obtained using the software:
 ```bash
-src/BuildingMAM/buildMAM -i Data/Flows.nwk -m T38 -otxt Data/Flows_T38.txt
+./src/BuildingMAM/buildMAM -i Data/Flows.nwk -m T38 -otxt Data/Flows_T38.txt
 ```
 This results in the network highlighted on the right, whose spatialisation was done via a ```Fruchterman Reingold``` followed by a ```Force Atlas 2``` layouts in ```Gephi```. We observe that this MAM seems homogeneous, as it does not highlight block structure, which is the desired target.
 
@@ -157,7 +157,7 @@ _______
 
 <img align="left" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/Flows98.png" width="25%" height="25%"><img align="right" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/Loop.png" width="10%" height="10%">On the other hand, a reinforcement process can be expressed by a motif containing a loop. We chose the motif *T98*, displayed on the right, to build the second MAM, which was generated with the command:
 ```bash
-src/BuildingMAM/buildMAM -i Data/Flows.nwk -m T98 -otxt Data/Flows_T98.txt
+./src/BuildingMAM/buildMAM -i Data/Flows.nwk -m T98 -otxt Data/Flows_T98.txt
 ```
 The result is highlighted on the left, with the spatialisation obtained by our two usual layouts in ```Gephi```. This time, the network is not homogeneous. Instead, the two blocks can be distinguished, as desired: nodes from different blocks are located in different areas of the layout, and there is a slight bottleneck at the junction between the two blocks.
 
