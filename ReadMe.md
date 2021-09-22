@@ -37,7 +37,7 @@ src/BuildingMAM/buildMAM -h
 
 #### Detailed Usage
 
-<img align="right" src="https://github.com/luleg/MotifAdjacencyMatrix/Images/blob/main/BiFan.png" width="8%" height="8%">
+<img align="right" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/blob/main/BiFan.png" width="8%" height="8%">
 
 The software comes with examples in the folder *Data*. Assume we aim to build the MAM of the network *Data/Hierachy.nwk* upon the Bifan motif (shown on the right), and store the output MAM in a file *Data/Hierachy_Bifan.txt*. In the root folder:
 
@@ -47,7 +47,7 @@ src/BuildingMAM/buildMAM -i Examples/Hierachy.nwk -m Q204 -otxt Examples/Hierach
 
 where:
 
-<img align="right" src="https://github.com/luleg/MotifAdjacencyMatrix/Images/blob/main/toyGraph.png" width="15%" height="15%">
+<img align="right" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/blob/main/toyGraph.png" width="15%" height="15%">
 
 * ```-i Examples/Hierachy.nwk``` provides the path to the input network.
 
@@ -93,7 +93,7 @@ Two networks are provided in this software, namely *Data/Hierarchical.nwk* and *
 
 :heavy_plus_sign: In addition to the current software, ```Python3``` with ```NetworkX2.5``` is used to build the networks, and ```Gephi``` to visualize them.
 
-<img align="right" src="https://github.com/luleg/MotifAdjacencyMatrix/Images/blob/main/HierarchicalRaw.png" width="30%" height="30%">
+<img align="right" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/blob/main/HierarchicalRaw.png" width="30%" height="30%">
 
 ### Hierarchical Network
 
@@ -103,7 +103,7 @@ Famous users from a same field have a very high probability to follow each other
 
 A network with two fields was built, using a Stochastic Block Model whose odds and block sizes are shown below.
 
-<img align="left" src="https://github.com/luleg/MotifAdjacencyMatrix/Images/blob/main/SBMHierarchy.png" width="25%" height="25%">
+<img align="left" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/blob/main/SBMHierarchy.png" width="25%" height="25%">
 
 ```python
 import networkx as nx
@@ -118,18 +118,18 @@ nx.write_edgelist(G,'Data/Hierarchical.nwk',delimiter,' ',data=False)
 ```
 The network is displayed at the top right, using the layout ```Force Atlas 2``` in ```Gephi```. Red, respectively dark blue, nodes correspond to famous users from one field, let say painting, respectively politics. Yellow, respectively light blue, nodes are anonymous users interested in painting, respectively politics. Users from different fields are roughly located in different part of the layout. However the network seems to consists in one homogeneous component, and without the colors, one cannot say that there are two fields, neither where to partition the network.
 
-<img align="right" src="https://github.com/luleg/MotifAdjacencyMatrix/Images/blob/main/Q2252.png" width="8%" height="8%"> To highlight the two components, we used the software to build the MAM of this network upon motif *Q2252* (shown on the right):
+<img align="right" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/blob/main/Q2252.png" width="8%" height="8%"> To highlight the two components, we used the software to build the MAM of this network upon motif *Q2252* (shown on the right):
 ```bash
 src/BuildingMAM/buildMAM Data/Hierarchy.nwk -m Q2252 -otxt Data/Hierarchy_Q2252.txt
 ```
-<img align="left" src="https://github.com/luleg/MotifAdjacencyMatrix/Images/blob/main/Hierarchical2252WithSingle.png" width="37%" height="37%"> This provides the network on the left, again displayed using the layout ```Force Atlas 2``` in ```Gephi```. Some nodes do not belong to any subgraph isomorphic to the *Q2252* graphlets, and are let disconnected. In the largest connected component, the two fields are highly separated, and a partition of the network in two components appears clearly, with only a few nodes being wrongly assigned.
+<img align="left" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/blob/main/Hierarchical2252WithSingle.png" width="37%" height="37%"> This provides the network on the left, again displayed using the layout ```Force Atlas 2``` in ```Gephi```. Some nodes do not belong to any subgraph isomorphic to the *Q2252* graphlets, and are let disconnected. In the largest connected component, the two fields are highly separated, and a partition of the network in two components appears clearly, with only a few nodes being wrongly assigned.
 
-<img align="right" src="https://github.com/luleg/MotifAdjacencyMatrix/Images/blob/main/Hierarchical2252_2Comp.png" width="30%" height="30%"> Furthermore, by removing the edges of weight 3 and below, we end up with two disconnected components that fit the expected fields extremely well, as shown on the right. Once again, the figure is obtained using the layout ```Force Atlas 2``` in ```Gephi``` (previous single nodes are not shown and disconnected nodes here come from thresholding the edges).
+<img align="right" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/blob/main/Hierarchical2252_2Comp.png" width="30%" height="30%"> Furthermore, by removing the edges of weight 3 and below, we end up with two disconnected components that fit the expected fields extremely well, as shown on the right. Once again, the figure is obtained using the layout ```Force Atlas 2``` in ```Gephi``` (previous single nodes are not shown and disconnected nodes here come from thresholding the edges).
 
 
 ### Network with Flow
 
- <img align="left" src="https://github.com/luleg/MotifAdjacencyMatrix/Images/blob/main/FlowsRaw.png" width="20%" height="20%"> The second network, called *Flows*, consists in two blocks of nodes, internally densely connected, with a huge amount of edges from one block to the other, and only a few edges in the opposite direction. <img align="right" src="https://github.com/luleg/MotifAdjacencyMatrix/Images/blob/main/SBMFlows.png" width="20%" height="20%"> Such a network is interestig, because two different partitionings may be wanted. If one is interested in finding nodes involved in source/sink relationships, the partitioning that put all the nodes in one unique block is the most desirable, while if looking for groups of nodes involved in a same reinforcement process, the partitioning with two partitions, one per block densely connected, is prefered. We will investigate such a network using two graphlets, one for each kind of structures we have enunciated.
+ <img align="left" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/blob/main/FlowsRaw.png" width="20%" height="20%"> The second network, called *Flows*, consists in two blocks of nodes, internally densely connected, with a huge amount of edges from one block to the other, and only a few edges in the opposite direction. <img align="right" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/blob/main/SBMFlows.png" width="20%" height="20%"> Such a network is interestig, because two different partitionings may be wanted. If one is interested in finding nodes involved in source/sink relationships, the partitioning that put all the nodes in one unique block is the most desirable, while if looking for groups of nodes involved in a same reinforcement process, the partitioning with two partitions, one per block densely connected, is prefered. We will investigate such a network using two graphlets, one for each kind of structures we have enunciated.
 
  We built the network using the Stochastic Block Model whose probabilities and block sizes are shown on the right, using ```NetworkX```:
 ```python
@@ -142,7 +142,7 @@ nx.write_edgelist(G,'Data/Flows.nwk',delimiter,' ',data=False)
 ```
 The resulting network is displayed on the top left, where red nodes are those from the smallest block (150 nodes), and green nodes belong to the largest one (250). The network visualisation was obtained by applying a ```Fruchterman Reingold``` layout followed by a ```Force Atlas 2``` layout in ```Gephi```.
 
-<img align="right" src="https://github.com/luleg/MotifAdjacencyMatrix/Images/blob/main/Flows38.png" width="20%" height="20%"><img align="left" src="https://github.com/luleg/MotifAdjacencyMatrix/Images/blob/main/FFL.png" width="10%" height="10%">If one aims to find groups of nodes involved in source/sink relationships, a sensible motif upon which building the MAM can be motif *T38*, the Feed Forward loop, illustrated on the left. The corresponding MAM was obtained using the software:
+<img align="right" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/blob/main/Flows38.png" width="20%" height="20%"><img align="left" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/blob/main/FFL.png" width="10%" height="10%">If one aims to find groups of nodes involved in source/sink relationships, a sensible motif upon which building the MAM can be motif *T38*, the Feed Forward loop, illustrated on the left. The corresponding MAM was obtained using the software:
 ```bash
 src/BuildingMAM/buildMAM -i Data/Flows.nwk -m T38 -otxt Data/Flows_T38.txt
 ```
@@ -150,7 +150,7 @@ This results in the network highlighted on the right, whose spatialisation was d
 
 _______
 
-<img align="left" src="https://github.com/luleg/MotifAdjacencyMatrix/Images/blob/main/Flows98.png" width="25%" height="25%"><img align="right" src="https://github.com/luleg/MotifAdjacencyMatrix/Images/blob/main/Loop.png" width="10%" height="10%">On the other hand, a reinforcement process can be expressed by a motif containing a loop. We chose the motif *T98*, displayed on the right, to build the second MAM, which was generated with the command:
+<img align="left" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/blob/main/Flows98.png" width="25%" height="25%"><img align="right" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/blob/main/Loop.png" width="10%" height="10%">On the other hand, a reinforcement process can be expressed by a motif containing a loop. We chose the motif *T98*, displayed on the right, to build the second MAM, which was generated with the command:
 ```bash
 src/BuildingMAM/buildMAM -i Data/Flows.nwk -m T98 -otxt Data/Flows_T98.txt
 ```
