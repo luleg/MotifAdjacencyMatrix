@@ -39,26 +39,26 @@ src/BuildingMAM/buildMAM -h
 
 <img align="right" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/BiFan.png" width="8%" height="8%">
 
-The software comes with examples in the folder *Data*. Assume we aim to build the MAM of the network *Data/Hierachy.nwk* upon the Bifan motif (shown on the right), and store the output MAM in a file *Data/Hierachy_Bifan.txt*. In the root folder:
+The software comes with examples in the folder *Data*. Assume we aim to build the MAM of the network *Data/Hierarchy.nwk* upon the Bifan motif (shown on the right), and store the output MAM in a file *Data/Hierarchy_Bifan.txt*. In the root folder:
 
 ```bash
-src/BuildingMAM/buildMAM -i Data/Hierachy.nwk -m Q204 -otxt Data/Hierachy_Bifan.txt -nthreads 8
+src/BuildingMAM/buildMAM -i Data/Hierarchy.nwk -m Q204 -otxt Data/Hierarchy_Bifan.txt -nthreads 8
 ```
 
 where:
 
 <img align="right" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/toyGraph.png" width="15%" height="15%">
 
-* ```-i Data/Hierachy.nwk``` provides the path to the input network.
+* ```-i Data/Hierarchy.nwk``` provides the path to the input network.
 
 :warning: The network must be an edgelist with integer nodes and only two columns (i.e. neither weights nor timestamps), separated by a space charcater, as shown on the right.
 
 * ```-m Q204``` indicates the motif to use is the Bifan, that is identified by *Q204* (see *GraphletIdentifiers.pdf*).
-* ```-otxt Data/Hierachy_Bifan.txt``` provides the path to the output MAM. The MAM is an edgelist of three columns, correponding to source, target and weight.
+* ```-otxt Data/Hierarchy_Bifan.txt``` provides the path to the output MAM. The MAM is an edgelist of three columns, correponding to source, target and weight.
 
 :bulb: An edge of weight ```w``` between two nodes ```a``` and ```b``` appears twice in the output file: as ```a b w``` and ```b a w```.
 
-* ```nthreads 8``` 8 threads are used to build the MAM.
+* ```-nthreads 8``` 8 threads are used to build the MAM.
 
 :bulb: To use when the network is large and the motif is a wedge or a quadrangle. Number of threads should be 4 and 8.
 
