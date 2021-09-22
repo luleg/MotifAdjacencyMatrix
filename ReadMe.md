@@ -98,7 +98,7 @@ Two networks are provided in this software, namely *Data/Hierarchy.nwk* and *Dat
 
 :heavy_plus_sign: In addition to the current software, ```Python3``` with ```NetworkX2.5``` is used to build the networks, and ```Gephi``` to visualize them.
 
-<img align="right" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/HierarchyRaw.png" width="30%" height="30%">
+<img align="right" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/HierarchicalRaw.png" width="30%" height="30%">
 
 ### Hierarchy Network
 
