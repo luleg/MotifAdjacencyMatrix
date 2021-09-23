@@ -134,7 +134,7 @@ The network is displayed at the top right, using the layout ```Force Atlas 2``` 
 
 ### Network with Flow
 
- <img align="left" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/FlowsRaw.png" width="20%" height="20%"> The second network, called *Flows*, consists in two blocks of nodes, internally densely connected, with a huge amount of edges from one block to the other, and only a few edges in the opposite direction. <img align="right" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/SBMFlows.png" width="20%" height="20%"> Such a network is interestig, because two different partitionings may be wanted. If one is interested in finding nodes involved in source/sink relationships, the partitioning that put all the nodes in one unique block is the most desirable, while if looking for groups of nodes involved in a same reinforcement process, the partitioning with two partitions, one per block densely connected, is prefered. We will investigate such a network using two graphlets, one for each kind of structures we have enunciated.
+ <img align="left" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/HowToPaartRaw2post.png" width="25%" height="25%"> The second network, called *Flows*, consists in two blocks of nodes, internally densely connected, with a huge amount of edges from one block to the other, and only a few edges in the opposite direction. <img align="right" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/SBMFlows.png" width="20%" height="20%"> Such a network is interestig, because two different partitionings may be wanted. If one is interested in finding nodes involved in source/sink relationships, the partitioning that put all the nodes in one unique block is the most desirable, while if looking for groups of nodes involved in a same reinforcement process, the partitioning with two partitions, one per block densely connected, is prefered. We will investigate such a network using two graphlets, one for each kind of structures we have enunciated.
 
  We built the network using the Stochastic Block Model whose probabilities and block sizes are shown on the right, using ```NetworkX```:
 ```python
@@ -145,7 +145,8 @@ Probabilities =[ [0.05, 0.2] , [1e-3, 0.075] ]
 G = nx.stochastic_block_model(BlockSizes,Probabilities,directed=True)
 nx.write_edgelist(G,'Data/Flows.nwk',delimiter,' ',data=False)
 ```
-The resulting network is displayed on the top left, where red nodes are those from the smallest block (150 nodes), and green nodes belong to the largest one (250). The network visualisation was obtained by applying a ```Fruchterman Reingold``` layout followed by a ```Force Atlas 2``` layout in ```Gephi```.
+The resulting network is displayed on the top left, where red nodes are those from the smallest block (150 nodes), and green nodes belong to the largest one (250).
+The huge amount of edges from green nodes to red ones is highlighted in light blue. Edges in the opposite drection, in dark blue, are very rare.
 
 <img align="right" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/Flows38.png" width="20%" height="20%"><img align="left" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/FFL.png" width="10%" height="10%">If one aims to find groups of nodes involved in source/sink relationships, a sensible motif upon which building the MAM can be motif *T38*, the Feed Forward loop, illustrated on the left. The corresponding MAM was obtained using the software:
 ```bash
