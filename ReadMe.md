@@ -131,6 +131,8 @@ The network is displayed at the top right, using the layout ```Force Atlas 2``` 
 
 <img align="right" src="https://github.com/luleg/MotifAdjacencyMatrix/blob/main/Images/Hierarchical2252_2Comp.png" width="30%" height="30%"> Furthermore, by removing the edges of weight 3 and below, we end up with two disconnected components that fit the expected fields extremely well, as shown on the right. Once again, the figure is obtained using the layout ```Force Atlas 2``` in ```Gephi``` (previous single nodes are not shown and disconnected nodes here come from thresholding the edges).
 
+_______
+
 
 ### Network with Flow
 
