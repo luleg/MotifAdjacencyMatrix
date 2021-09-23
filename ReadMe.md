@@ -163,6 +163,6 @@ The result is highlighted on the left, with the spatialisation obtained by our t
 
 ## Stay Update
 
-A second version of this software is on going, which will contains (at least) two major improvements:
-* Dealing with anchors. The current version makes no difference between the roles that the nodes play within the graphlet. But counting nodes that co-occur in a graphlet only if they play specific roles can be useful. For instance, in the *Hierarchy* network, it should allow to separate  anonymous users from famous ones.
+A second version of this software is ongoing, which will contain (at least) two major improvements:
+* Dealing with anchors. The current version makes no difference between the roles that the nodes play within the graphlet. But counting nodes that co-occur in a graphlet only if they play specific roles can be useful. For instance, in the *Hierarchy* network, it should allow to separate anonymous users from famous ones.
 * An even more efficient method for computing MAM built upon 3-node graphlets has been implemented using [GraphBlas](https://graphblas.github.io/), and will be integrated to this software.
