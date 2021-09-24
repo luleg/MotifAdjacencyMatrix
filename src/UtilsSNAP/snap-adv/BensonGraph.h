@@ -132,8 +132,7 @@ void BensonGraph<TypeGraph>::SaveAsLv(const TStr& lv_output) const{
   FILE *WeightOut = fopen((lv_output+".weight").CStr(),"wb");
   uint nbNodes = graph->GetNodes();
   fwrite((char*)(&nbNodes),sizeof(nbNodes),1,GraphOut);
-  for (typename TypeGraph::TNodeI NI = graph->BegNI(); NI < graph->EndNI();NI++){
-    uint node = NI.GetId();
+  for (uint node = 0; node < weight.Len(); node ++){
     const THash<TInt, TInt>& edge_list = weight[node];
     uint deg = edge_list.Len();
     if (deg>0){
