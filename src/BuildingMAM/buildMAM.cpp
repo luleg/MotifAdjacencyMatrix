@@ -56,7 +56,7 @@ int usage(bool verbose){
   printf("OTHER   ::buildMAM -f ParamsFile\n");
   if (verbose){
     printf("\t\t-f ParamsFile :: A file that contains the above mentioned arguments, one by line, ended by a \"?\" char.\n");
-    printf("\t\t\tSee file Data/inputs.dat for an example\.n");
+    printf("\t\t\tSee file Data/inputs.dat for an example\n.");
   }
   return 0;
 }
