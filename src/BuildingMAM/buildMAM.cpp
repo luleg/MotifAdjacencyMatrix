@@ -1,9 +1,7 @@
-#include "stdafx.h"
 #include "BensonGraphQuad.h"
 #include "BensonGraphTriangle.h"
 #include "BensonGraphEdge.h"
 #include <cstring>
-// #include <stdio>
 #include <stdio.h>
 
 TStr FileGraph = "";
