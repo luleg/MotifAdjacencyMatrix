@@ -190,9 +190,6 @@ int read_args(int argc, char **argv){
   return 0;
 }
 
-
-
-
 int main(int argc, char **argv){
 
   read_args(argc,argv); // Read the arguments -- input files, motif, output files, number of threads, flags.

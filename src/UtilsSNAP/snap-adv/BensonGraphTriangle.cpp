@@ -166,8 +166,8 @@ BensonGraphTriangleMP::BensonGraphTriangleMP() : BensonGraphTriangle() {
 
 BensonGraphTriangleMP::BensonGraphTriangleMP(PNGraph& one_graph,MotifTypeTriangle& one_motif,const TInt& nThreads, bool verb) : BensonGraphTriangle(one_graph,one_motif,false,verb), nbProc(nThreads) {
 
-  weight = WeightVHM(graph->GetMxNId() + 1);
-  TLocks = TVec<omp_lock_t>(graph->GetMxNId() + 1); // Create and init one lock per node
+  weight = WeightVHM(graph->GetMxNId());
+  TLocks = TVec<omp_lock_t>(graph->GetMxNId()); // Create and init one lock per node
   for (TNGraph::TNodeI VI = graph->BegNI(); VI < graph->EndNI(); VI++) {
     int vi = VI.GetId();
     weight[vi] = THash<TInt,TInt>();

@@ -537,8 +537,8 @@ BensonGraphQuadMP::BensonGraphQuadMP() : BensonGraphQuad() {
 
 BensonGraphQuadMP::BensonGraphQuadMP(PNGraph& one_graph,MotifTypeQuad& one_motif,const TInt& nThreads, bool verb) : BensonGraphQuad(one_graph,one_motif,false,verb), nbProc(nThreads) {
 
-  weight = WeightVHM(graph->GetMxNId() + 1);
-  TLocks = TVec<omp_lock_t>(graph->GetMxNId() + 1);
+  weight = WeightVHM(graph->GetMxNId());
+  TLocks = TVec<omp_lock_t>(graph->GetMxNId());
   for (TNGraph::TNodeI VI = graph->BegNI(); VI < graph->EndNI(); VI++) {
     int vi = VI.GetId();
     weight[vi] = THash<TInt,TInt>();

@@ -29,6 +29,8 @@ class BensonGraph{
     virtual ~BensonGraph();
     void SaveAsTxt(const TStr& file) const; // To save the MAM in a text file
     void SaveAsLv(const TStr& file) const; //  to save the MAM in two binary files (structure and wieghts)
+    WeightVHM& GetWeight();
+    WeightVHM& GetWeight(int& singles);
 
 };
 
@@ -49,7 +51,7 @@ template<class TypeGraph>
 BensonGraph<TypeGraph>::BensonGraph(TPt<TypeGraph>& one_graph,bool& decomp, bool verb) : graph(one_graph), verbose(verb)
 {
   if (decomp){
-    weight = WeightVHM(graph->GetMxNId() + 1);
+    weight = WeightVHM(graph->GetMxNId());
     for (typename TypeGraph::TNodeI VI = graph->BegNI(); VI < graph->EndNI(); VI++) {
       int vi = VI.GetId();
       weight[vi] = THash<TInt,TInt>();
@@ -156,5 +158,21 @@ void BensonGraph<TypeGraph>::SaveAsLv(const TStr& lv_output) const{
   }
 }
 
+template<class TypeGraph>
+WeightVHM& BensonGraph<TypeGraph>::GetWeight(){
+  return weight;
+}
+
+template<class TypeGraph>
+WeightVHM& BensonGraph<TypeGraph>::GetWeight(int& singles){
+  singles = 0;
+  for (typename TypeGraph::TNodeI NI = graph->BegNI(); NI < graph->EndNI();NI++){
+    int src = NI.GetId();
+    if (weight[src].Len() == 0){
+      singles++;
+    }
+  }
+  return weight;
+}
 
 #endif // bensongraph_h

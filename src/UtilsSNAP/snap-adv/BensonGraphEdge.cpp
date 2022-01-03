@@ -110,8 +110,8 @@ BensonGraphEdgeMP::BensonGraphEdgeMP() : BensonGraphEdge() {
 
 BensonGraphEdgeMP::BensonGraphEdgeMP(PNGraph& one_graph,MotifTypeEdge& one_motif,const TInt& nThreads,bool verb) : BensonGraphEdge(one_graph,one_motif,false,verb), nbProc(nThreads) {
 
-  weight = WeightVHM(graph->GetMxNId() + 1);
-  TLocks = TVec<omp_lock_t>(graph->GetMxNId() + 1); // Create and init one lock per node
+  weight = WeightVHM(graph->GetMxNId());
+  TLocks = TVec<omp_lock_t>(graph->GetMxNId()); // Create and init one lock per node
   for (TNGraph::TNodeI VI = graph->BegNI(); VI < graph->EndNI(); VI++) {
     int vi = VI.GetId();
     weight[vi] = THash<TInt,TInt>();
